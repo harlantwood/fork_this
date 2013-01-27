@@ -1,0 +1,14 @@
+= render :partial => "recent_changes_sidebar"
+
+%ul.overview
+  %li
+    Copy any Creative Commons licensed web page into a Github repository
+
+.open
+  .action
+    Enter a Web Page to Open:
+  = semantic_form_for @forked_page do |f|
+    = f.inputs do
+      = f.input :url, :label => false, :placeholder => 'www.change-the-world.org'
+    = f.actions do
+      = f.action :submit, :as => :button, :label => 'Open Now'

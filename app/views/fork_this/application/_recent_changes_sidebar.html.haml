@@ -1,0 +1,7 @@
+- content_for :sidebar do
+  %section
+    %h1 Recent Changes
+    %ul
+      - @recent_changes.each do |recent_change|
+        %li
+          %a{:href => "http://#{recent_change['collection']}.via.#{request.domain}#{request.port_string}/#{recent_change['slug']}"}= "#{recent_change['collection']}/#{recent_change['slug']}"

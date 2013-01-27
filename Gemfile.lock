@@ -2,7 +2,13 @@ PATH
   remote: .
   specs:
     fork_this (0.0.1)
+      formtastic (~> 2.2.1)
+      haml (~> 3.1.7)
+      html_massage (~> 0.2.1)
+      nokogiri (~> 1.5.2)
+      pismo (~> 0.7.2)
       rails (~> 3.2.9)
+      rest-client (~> 1.6.7)
 
 GEM
   remote: http://rubygems.org/
@@ -35,9 +41,23 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    awesome_print (1.1.0)
+    bourne (1.1.2)
+      mocha (= 0.10.5)
     builder (3.0.4)
+    chronic (0.8.0)
     erubis (2.7.0)
+    fast-stemmer (1.0.1)
+    formtastic (2.2.1)
+      actionpack (>= 3.0)
+    haml (3.1.7)
     hike (1.2.1)
+    html_massage (0.2.1)
+      nokogiri (>= 1.4)
+      rest-client (>= 1.6)
+      reverse_markdown (>= 0.4)
+      sanitize (>= 2.0)
+      thor
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -48,8 +68,19 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.19)
+    mocha (0.10.5)
+      metaclass (~> 0.0.1)
     multi_json (1.5.0)
+    nokogiri (1.5.6)
+    pismo (0.7.2)
+      awesome_print
+      chronic
+      fast-stemmer
+      nokogiri
+      sanitize
+      shoulda
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -76,6 +107,19 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
+    reverse_markdown (0.4.2)
+      nokogiri
+    sanitize (2.0.3)
+      nokogiri (>= 1.4.4, < 1.6)
+    shoulda (3.3.2)
+      shoulda-context (~> 1.0.1)
+      shoulda-matchers (~> 1.4.1)
+    shoulda-context (1.0.2)
+    shoulda-matchers (1.4.2)
+      activesupport (>= 3.0.0)
+      bourne (~> 1.1.2)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)

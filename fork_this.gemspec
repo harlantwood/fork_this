@@ -1,6 +1,6 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-# Maintain your gem's version:
+# Maintain your gem"s version:
 require "fork_this/version"
 
 # Describe your gem and declare its dependencies:
@@ -17,7 +17,12 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.9"
-  # s.add_dependency "jquery-rails"
+  s.add_dependency "nokogiri", "~> 1.5.2"
+  s.add_dependency "pismo", "~> 0.7.2"
+  s.add_dependency "rest-client", "~> 1.6.7"
+  s.add_dependency "html_massage", "~> 0.2.1"
+  s.add_dependency "haml", "~> 3.1.7"
+  s.add_dependency "formtastic", "~> 2.2.1"
 
   s.add_development_dependency "sqlite3"
 end
