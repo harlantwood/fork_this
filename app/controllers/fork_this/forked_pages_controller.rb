@@ -13,26 +13,25 @@ module ForkThis
       populate_recent_changes
     end
 
-    #def create
-    #  @forked_page = ForkedPage.new(params[:forked_page])
-    #  (populate_recent_changes and render :new and return) unless @forked_page.valid?
-    #
-    #  @forked_page.fetch!
-    #  (populate_recent_changes and render :new and return) unless @forked_page.valid?
-    #
-    #  begin
-    #    domain, slug = ForkThis.open(@forked_page.doc, @forked_page.url,
-    #                                   :domain_connector => Env['DOMAIN_CONNECTOR'],
-    #                                   :shorten_origin_domain => Env['SHORTEN_ORIGIN_DOMAIN']
-    #    )
-    #    redirect_to "#{request.protocol}#{domain}#{request.port_string}/#{slug}"
-    #  rescue ForkThis::NoKnownOpenLicense
-    #    @forked_page.errors.add :url, %{Whoops! We couldn't find a <href="http://creativecommons.org/licenses/" target="_blank">Creative Commons license</a> on this page -- No action was taken}
-    #                                                      # todo fix html link rendering in the error above
-    #
-    #    populate_recent_changes and render :new and return
-    #  end
-    #end
+    def create
+      @forked_page = ForkedPage.new(params[:forked_page])
+      (populate_recent_changes and render :new and return) unless @forked_page.valid?
+    
+      @forked_page.fetch!
+      (populate_recent_changes and render :new and return) unless @forked_page.valid?
+    
+      begin
+        domain, slug = ForkThis.open(@forked_page.doc, @forked_page.url,
+                                       :domain_connector => ENV['DOMAIN_CONNECTOR']
+        )
+        redirect_to "#{request.protocol}#{domain}#{request.port_string}/#{slug}"
+      rescue ForkThis::NoKnownOpenLicense
+        @forked_page.errors.add :url, %{Whoops! We couldn't find a <href="http://creativecommons.org/licenses/" target="_blank">Creative Commons license</a> on this page -- No action was taken}
+                                                          # todo fix html link rendering in the error above
+    
+        populate_recent_changes and render :new and return
+      end
+    end
 
   end
 end

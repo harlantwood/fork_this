@@ -15,3 +15,5 @@ gem "jquery-rails"
 
 # To use debugger
 # gem 'debugger'
+
+gem 'polystore', :git => 'git://github.com/harlantwood/polystore.git'

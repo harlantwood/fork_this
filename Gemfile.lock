@@ -1,7 +1,17 @@
+GIT
+  remote: git://github.com/harlantwood/polystore.git
+  revision: 33c70282ec853d58c2bde84582479a3e92d7700a
+  specs:
+    polystore (0.0.1)
+      activesupport (>= 3.0.0)
+      easy_shell
+      github_api (~> 0.6.0)
+
 PATH
   remote: .
   specs:
     fork_this (0.0.1)
+      faraday (~> 0.8.4)
       formtastic (~> 2.2.1)
       haml (~> 3.1.7)
       html_massage (~> 0.2.1)
@@ -9,6 +19,7 @@ PATH
       pismo (~> 0.7.2)
       rails (~> 3.2.9)
       rest-client (~> 1.6.7)
+      superstring (~> 0.0.1)
 
 GEM
   remote: http://rubygems.org/
@@ -46,11 +57,22 @@ GEM
       mocha (= 0.10.5)
     builder (3.0.4)
     chronic (0.8.0)
+    dotenv (0.5.0)
+    easy_shell (0.0.1)
     erubis (2.7.0)
+    faraday (0.8.4)
+      multipart-post (~> 1.1)
     fast-stemmer (1.0.1)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    github_api (0.6.5)
+      faraday (~> 0.8.1)
+      hashie (~> 1.2.0)
+      multi_json (~> 1.3)
+      nokogiri (~> 1.5.2)
+      oauth2
     haml (3.1.7)
+    hashie (1.2.0)
     hike (1.2.1)
     html_massage (0.2.1)
       nokogiri (>= 1.4)
@@ -58,12 +80,15 @@ GEM
       reverse_markdown (>= 0.4)
       sanitize (>= 2.0)
       thor
+    httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.5)
+    jwt (0.1.5)
+      multi_json (>= 1.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -73,7 +98,14 @@ GEM
     mocha (0.10.5)
       metaclass (~> 0.0.1)
     multi_json (1.5.0)
+    multipart-post (1.1.5)
     nokogiri (1.5.6)
+    oauth2 (0.8.0)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
     pismo (0.7.2)
       awesome_print
       chronic
@@ -126,6 +158,9 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.6)
+    superstring (0.0.1)
+      activesupport (>= 3.0.0)
+      i18n
     thor (0.16.0)
     tilt (1.3.3)
     treetop (1.4.12)
@@ -137,6 +172,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   fork_this!
   jquery-rails
+  polystore!
   sqlite3
