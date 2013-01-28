@@ -80,7 +80,7 @@ module ForkThis
       name = ENV['HOME_SLUG'] if name.empty?
       name = name.slug(:page)
 
-      origin = options[:shorten_origin_domain] ? url_chunks.first : url_chunks.join
+      origin = url_chunks.join
       subject = options[:topic] ? options[:topic].slug(:padded_subdomain) : origin
       connector = options[:domain_connector]
       curator = options[:username]
