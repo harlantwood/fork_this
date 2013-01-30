@@ -1,25 +1,27 @@
-<%#= link_to 'Remix This', edit_page_path(:id => @page_id) if ENV['CREATE_PAGES'] %>
+<div class="container">
 
-<% if @origin_message %>
-  <div class="origin_message">
-    <%= @origin_message %>
-    &bull;
-    <%= @fork_this %>
-  </div>
-<% end %>
-
-<%= @page_html.html_safe %>
-
-<div class="copying">
-  <div class="origin_message">
-    <div>
-      &#8688;
+  <% if @origin_message %>
+    <div class="origin_message">
+      <%= @origin_message %>
+      &bull;
       <%= @fork_this %>
     </div>
-    <div>
-      &#8688;
-      <a href="<%= @zipball_url %>" rel="nofollow">Download this <%= ENV['COLLECTION_LABEL'].downcase %></a>
-      as a zip file
+  <% end %>
+
+  <%= @page_html.html_safe %>
+
+  <div class="copying">
+    <div class="origin_message">
+      <div>
+        &#8688;
+        <%= @fork_this %>
+      </div>
+      <div>
+        &#8688;
+        <a href="<%= @zipball_url %>" rel="nofollow">Download this <%= ENV['COLLECTION_LABEL'].downcase %></a>
+        as a zip file
+      </div>
     </div>
   </div>
-</div>
+
+</div> <!-- /container -->

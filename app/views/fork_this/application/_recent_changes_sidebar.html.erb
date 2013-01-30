@@ -1,0 +1,10 @@
+<div class="span3">
+  <div class="well sidebar-nav">
+    <ul class="nav nav-list">
+      <li class="nav-header">Recent Changes</li>
+      <% @recent_changes.each do |recent_change| %>
+        <li><a href="<%= "http://#{recent_change['collection']}.via.#{request.domain}#{request.port_string}/#{recent_change['slug']}" %>"><%= "#{recent_change['collection']}/#{recent_change['slug']}" %></a></li>
+      <% end %>
+    </ul>
+  </div><!--/.well -->
+</div><!--/span-->
