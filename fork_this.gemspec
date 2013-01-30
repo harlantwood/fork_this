@@ -13,10 +13,11 @@ Gem::Specification.new do |s|
   s.summary     = "TODO: Summary of ForkThis."
   s.description = "TODO: Description of ForkThis."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
+  s.required_ruby_version = '>= 1.8.7'
 
-  s.add_dependency "rails", "~> 3.2.9"
+  s.add_dependency "rails", "~> 3.2.11"
   s.add_dependency "nokogiri", "~> 1.5.2"
   s.add_dependency "pismo", "~> 0.7.2"
   s.add_dependency "rest-client", "~> 1.6.7"
