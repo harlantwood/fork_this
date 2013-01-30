@@ -1,4 +1,5 @@
 require 'active_model'
+require 'redcarpet'
 #defined?(require_dependency) ? require_dependency("stores/github_store") : require_relative("../../lib/stores/github_store")
 #require "polystore/all"
 
@@ -46,25 +47,25 @@ module ForkThis
     #def subdomain
     #  "#{title.slug(:padded_subdomain)}.#{username.slug(:padded_subdomain)}"
     #end
-    #
-    #def self.get_html(subdomain, slug)
-    #  markdown2html get_markdown(subdomain, slug)
-    #end
-    #
-    #def self.get_markdown(subdomain, slug)
-    #  slug = ENV['HOME_SLUG'] if slug.empty?
-    #  subdomain = canonicalize(subdomain)
-    #  markdown = begin
-    #    CONFIG.storage.get_text "#{slug}.markdown", :collection => subdomain
-    #  rescue SocketError, socket_error
-    #    if Rails.env.development?
-    #      "# Sample page\n\n* Point 1\n* Point 2"   # sample text for dev mode offline work
-    #    else
-    #      raise socket_error
-    #    end
-    #  end
-    #  markdown
-    #end
+    
+    def self.get_html(subdomain, slug)
+      markdown2html get_markdown(subdomain, slug)
+    end
+    
+    def self.get_markdown(subdomain, slug)
+      slug = ENV['HOME_SLUG'] if slug.empty?
+      subdomain = canonicalize(subdomain)
+      markdown = begin
+        Engine.config.storage.get_text "#{slug}.markdown", :collection => subdomain
+      rescue SocketError => socket_error
+        if Rails.env.development?
+          "# Sample page\n\n* Point 1\n* Point 2"   # sample text for dev mode offline work
+        else
+          raise socket_error
+        end
+      end
+      markdown
+    end
     
     def self.put_markdown(slug, markdown, metadata)
       Engine.config.storage.put_text "#{slug}.markdown", markdown, metadata
@@ -83,26 +84,25 @@ module ForkThis
       Engine.config.storage.put_struct 'updates', updates, :collection => 'meta'
     end
     
-    #def self.origin_message(original_domain)
-    #  "This is a remixable version of open licensed content from #{original_domain}"
-    #end
-    #
-    #
-    #private
-    #
-    #def self.markdown2html(markdown)
-    #  return nil if markdown.nil?
-    #  redcarpet = Redcarpet::Markdown.new Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true
-    #  html = redcarpet.render markdown
-    #  html
-    #end
-    #
-    #def self.canonicalize(subdomain)
-    #  segments = subdomain.split('.')
-    #  segments.reject!{|segment| segment == ENV['DOMAIN_CONNECTOR']}
-    #  raise "Expected 1 or more subdomain segments, got #{segments.inspect}" unless segments.size >= 1
-    #  segments.join('.')
-    #end
+    def self.origin_message(original_domain)
+      "This is a remixable version of open licensed content from #{original_domain}"
+    end
+    
+    private
+  
+    def self.markdown2html(markdown)
+      return nil if markdown.nil?
+      redcarpet = Redcarpet::Markdown.new Redcarpet::Render::HTML, :autolink => true, :space_after_headers => true
+      html = redcarpet.render markdown
+      html
+    end
+    
+    def self.canonicalize(subdomain)
+      segments = subdomain.split('.')
+      segments.reject!{|segment| segment == ENV['DOMAIN_CONNECTOR']}
+      raise "Expected 1 or more subdomain segments, got #{segments.inspect}" unless segments.size >= 1
+      segments.join('.')
+    end
 
   end
 end
