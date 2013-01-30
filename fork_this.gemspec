@@ -7,11 +7,11 @@ require "fork_this/version"
 Gem::Specification.new do |s|
   s.name        = "fork_this"
   s.version     = ForkThis::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ForkThis."
-  s.description = "TODO: Description of ForkThis."
+  s.authors     = ["Harlan T Wood"]
+  s.email       = ["code@harlantwood.net"]
+  s.homepage    = "https://github.com/harlantwood/fork_this"
+  s.summary     = "Fork arbitrary web pages into Github repositories"
+  s.description = s.summary
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
