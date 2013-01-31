@@ -2,7 +2,7 @@ module ForkThis
   class ApplicationController < ActionController::Base
 
     def populate_recent_changes
-      @recent_changes = []  # Store.get_struct('updates', :collection => 'meta') || []
+      @recent_changes = Engine.config.storage.get_struct('updates.json', :collection => 'meta') || []
     end
 
   end

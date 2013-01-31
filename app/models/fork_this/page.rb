@@ -73,7 +73,7 @@ module ForkThis
     end
     
     def self.record_update(slug, metadata)
-      updates = Engine.config.storage.get_struct('updates', :collection => 'meta') || []
+      updates = Engine.config.storage.get_struct('updates.json', :collection => 'meta') || []
       updates.delete_if{|page| page['collection'] == metadata[:collection] && page['slug'] == slug }
       updates.unshift({
           collection: metadata[:collection],
@@ -81,7 +81,7 @@ module ForkThis
           updated: Time.now.utc.iso8601
         })
       updates.pop if updates.size > ENV['MAX_UPDATES'].to_i
-      Engine.config.storage.put_struct 'updates', updates, :collection => 'meta'
+      Engine.config.storage.put_struct 'updates.json', updates, :collection => 'meta'
     end
     
     def self.origin_message(original_domain)
