@@ -17,6 +17,8 @@ gem 'fork_this', :git => 'git://github.com/harlantwood/fork_this.git'
 gem 'polystore', :git => 'git://github.com/harlantwood/polystore.git'
 ```
 
+Then:
+
 ```sh
 bundle install
 ```
@@ -42,6 +44,8 @@ COLLECTION_LABEL=Page
 SITE_NAME=My Forking Site
 ^D
 ```
+
+And finally: 
 
 ```sh
 rails server
