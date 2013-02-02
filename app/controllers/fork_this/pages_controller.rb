@@ -7,9 +7,9 @@ module ForkThis
       @page_html = Page.get_html @collection, @page_id
       not_found unless @page_html
 
-      repo_url     = "https://github.com/#{ENV['GITHUB_USER']}/#{@collection}"
+      repo_url     = "https://github.com/#{ENV['POLYSTORE_GITHUB_USER']}/#{@collection}"
       @fork_this   = %{<a href="#{repo_url}">Fork this #{ENV['COLLECTION_LABEL'].downcase}</a> on Github}.html_safe
-      @zipball_url = "https://github.com/#{ENV['GITHUB_USER']}/#{@collection}/zipball/master"
+      @zipball_url = "https://github.com/#{ENV['POLYSTORE_GITHUB_USER']}/#{@collection}/zipball/master"
       @full_width = true
     end
 
