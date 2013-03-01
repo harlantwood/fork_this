@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require File.expand_path("../lib/fork_this/cli", File.dirname(__FILE__))
+ForkThis::CLI.start
