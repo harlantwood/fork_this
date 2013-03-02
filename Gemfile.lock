@@ -1,11 +1,12 @@
 GIT
   remote: git://github.com/harlantwood/polystore.git
-  revision: 33c70282ec853d58c2bde84582479a3e92d7700a
+  revision: cb1a8031efb1792ccb81ba7e92d41f9cc5f80f51
   specs:
     polystore (0.0.1)
       activesupport (>= 3.0.0)
-      easy_shell
+      easy_shell (~> 0.0.1)
       github_api (~> 0.6.0)
+      rest-client (~> 1.6.7)
 
 PATH
   remote: .
@@ -16,9 +17,10 @@ PATH
       formtastic (~> 2.2.1)
       haml (~> 3.1.7)
       html_massage (~> 0.2.1)
+      mechanize (>= 2.5.1)
       nokogiri (~> 1.5.2)
       pismo (~> 0.7.2)
-      rails (~> 3.2.11)
+      rails (= 3.2.11)
       redcarpet (~> 2.2.2)
       rest-client (~> 1.6.7)
       superstring (~> 0.0.1)
@@ -59,12 +61,14 @@ GEM
       mocha (= 0.10.5)
     builder (3.0.4)
     chronic (0.9.0)
+    domain_name (0.5.7)
+      unf (~> 0.0.3)
     dotenv (0.5.0)
     easy_shell (0.0.1)
     erubis (2.7.0)
-    faraday (0.8.4)
+    faraday (0.8.5)
       multipart-post (~> 1.1)
-    fast-stemmer (1.0.1)
+    fast-stemmer (1.0.2)
     formtastic (2.2.1)
       actionpack (>= 3.0)
     github_api (0.6.5)
@@ -85,25 +89,38 @@ GEM
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
-    json (1.7.6)
+    json (1.7.7)
     jwt (0.1.5)
       multi_json (>= 1.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mechanize (2.5.1)
+      domain_name (~> 0.5, >= 0.5.1)
+      mime-types (~> 1.17, >= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (~> 0.0, >= 0.0.9)
     metaclass (0.0.1)
-    mime-types (1.19)
+    mime-types (1.21)
     mocha (0.10.5)
       metaclass (~> 0.0.1)
-    multi_json (1.5.0)
+    multi_json (1.6.1)
+    multi_xml (0.5.3)
     multipart-post (1.1.5)
+    net-http-digest_auth (1.2.1)
+    net-http-persistent (2.8)
     nokogiri (1.5.6)
-    oauth2 (0.8.0)
+    ntlm-http (0.1.1)
+    oauth2 (0.9.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
+      multi_xml (~> 0.5)
       rack (~> 1.2)
     pismo (0.7.2)
       awesome_print
@@ -113,7 +130,7 @@ GEM
       sanitize
       shoulda
     polyglot (0.3.3)
-    rack (1.4.4)
+    rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-ssl (1.3.3)
@@ -136,7 +153,7 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.0.3)
-    rdoc (3.12)
+    rdoc (3.12.1)
       json (~> 1.4)
     redcarpet (2.2.2)
     rest-client (1.6.7)
@@ -167,11 +184,16 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.35)
+    unf (0.0.5)
+      unf_ext
+    unf_ext (0.0.6)
+    webrobots (0.1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   fork_this!
   polystore!
   sqlite3
