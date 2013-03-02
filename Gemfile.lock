@@ -20,6 +20,7 @@ PATH
       mechanize (>= 2.5.1)
       nokogiri (~> 1.5.2)
       pismo (~> 0.7.2)
+      rack-www (~> 1.5.0)
       rails (= 3.2.11)
       redcarpet (~> 2.2.2)
       rest-client (~> 1.6.7)
@@ -137,6 +138,8 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-www (1.5.0)
+      rack
     rails (3.2.11)
       actionmailer (= 3.2.11)
       actionpack (= 3.2.11)
