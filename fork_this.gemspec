@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
   s.required_ruby_version = '>= 1.8.7'
 
-  s.add_dependency "rails", "~> 3.2.11"
+  s.add_dependency "rails", "3.2.11"
   s.add_dependency "nokogiri", "~> 1.5.2"
   s.add_dependency "pismo", "~> 0.7.2"
   s.add_dependency "rest-client", "~> 1.6.7"
