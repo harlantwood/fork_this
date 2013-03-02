@@ -12,7 +12,7 @@ module ForkThis
     include FileUtils
 
     def crawl(options)
-      url = options[:url] || raise
+      url = options[:url] || raise('please pass in options[:url]')
       agent = Mechanize.new
       log_dir = "tmp/logs"
       mkdir_p log_dir
