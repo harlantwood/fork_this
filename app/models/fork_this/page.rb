@@ -4,36 +4,11 @@ require 'redcarpet'
 #require "polystore/all"
 
 module ForkThis
-  class Page
-    include ActiveModel::Validations
-    include ActiveModel::Conversion
-    extend ActiveModel::Naming
-    attr_reader   :errors
+  class Page < BaseModel
 
     attr_accessor :title, :content, :username
 
     validates :title, :length => {:minimum => 8}
-
-    def initialize(attributes = {})
-      @attributes = attributes
-      @attributes.each do |name, value|
-        send("#{name}=", value)
-      end
-      @errors = ActiveModel::Errors.new(self)
-    end
-
-    def persisted?
-      false
-    end
-
-    def inspect
-      inspection = if @attributes
-        @attributes.map{ |key, value| "#{key}: #{value}" }.join(", ")
-      else
-        "not initialized"
-      end
-      "#<#{self.class} #{inspection}>"
-    end
 
     #def save
     #  self.class.put_markdown(ENV['HOME_SLUG'], content, :collection => self.class.canonicalize(subdomain))
