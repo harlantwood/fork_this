@@ -19,9 +19,10 @@ module ForkThis
     end
 
     initializer "domains" do |app|
+      ENV['BASE_DOMAIN'] = 'lvh.me' if Rails.env.development?
       config.home_subdomain = "www"
       config.home_domain = "#{config.home_subdomain}.#{ENV['BASE_DOMAIN']}"
     end
-    
+
   end
 end
