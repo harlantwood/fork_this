@@ -47,11 +47,11 @@ module ForkThis
     #def subdomain
     #  "#{title.slug(:padded_subdomain)}.#{username.slug(:padded_subdomain)}"
     #end
-    
+
     def self.get_html(subdomain, slug)
       markdown2html get_markdown(subdomain, slug)
     end
-    
+
     def self.get_markdown(subdomain, slug)
       slug = ENV['HOME_SLUG'] if slug.empty?
       subdomain = canonicalize(subdomain)
