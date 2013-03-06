@@ -1,6 +1,32 @@
 ForkThis
 ========
 
+Crawling sites
+--------------
+
+Crawling saves a list of links (which may or may not yet have been crawled):
+
+`en.wikipedia.org/meta/links.json`:
+
+```json
+{
+  'http://en.wikipedia.org/wiki/Physics': [
+    'http://en.wikipedia.org/wiki/Academic_discipline',
+    'http://www.scholarpedia.org/article/Encyclopedia_of_physics'
+  ]
+]
+```
+
+And also a list of urls which have been crawled, with a last crawl timestamp:
+
+`en.wikipedia.org/meta/visited_links.json`:
+
+```json
+{
+  'http://en.wikipedia.org/wiki/Academic_discipline': { visited: '2013-03-04T10:39:22+00:00' }  /* DateTime.now.utc.iso8601 */
+}
+```
+
 Installation
 ------------
 
