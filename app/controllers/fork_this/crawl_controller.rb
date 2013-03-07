@@ -8,7 +8,7 @@ module ForkThis
     end
 
     def update
-      ForkThis::Crawl.next_page params[:crawl]
+      ForkThis::Net::Crawl.next_page params[:crawl]
         # :start_url => params[:crawl][:start],
         # :depth => params[:crawl][:depth],
         # :remaining_pages => params[:crawl][:remaining_pages]

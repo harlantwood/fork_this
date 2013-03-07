@@ -7,11 +7,7 @@ require 'html_massage'
 require 'date'
 
 module ForkThis
-  module Crawl
-
-    def self.next_page *args
-      Spider.new.next_page *args
-    end
+  module Net
 
     class Spider
 
