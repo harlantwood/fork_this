@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+
+    <div class="span9">
+      <div class="hero-unit">
+        <p>Open any Creative Commons licensed web site</p>
+        <h2>Enter a web page to start from</h2>
+        <%= semantic_form_for @crawl do |f| %>
+          <%= f.inputs do %>
+            <%= f.input :start_url, :label => false, :placeholder => 'https://en.wikipedia.org/wiki/Special:Random' %>
+          <% end %>
+          <%= f.actions do %>
+            <%= f.action :submit, :as => :button, :label => 'Open now »', :button_html => { :class => "btn btn-primary btn-large" } %>
+          <% end %>
+        <% end %>
+      </div>
+    </div><!--/span-->
+    <%###= render :partial => "recent_changes_sidebar" %>
+
+  </div><!--/row-->
+</div><!--/container-->
