@@ -1,10 +1,10 @@
 require 'mechanize'
 # require 'logger'
 require 'polystore/all'
-# require 'superstring'
 require 'fileutils'
 require 'html_massage'
 require 'date'
+require 'superstring'
 
 module ForkThis
   module Net
@@ -63,7 +63,11 @@ module ForkThis
         all_links         = storage.get_struct "meta/links.json",         :collection => start_url.host_without_www
         all_visited_links = storage.get_struct "meta/visited_links.json", :collection => start_url.host_without_www
 
-        links = all_links[start_url].sort{ |a,b| a.value['depth'] <=> b.value['depth'] }
+        all_links ||= {}
+        all_visited_links ||= {}
+
+        links = all_links[start_url] || []
+        links.sort!{ |a,b| a.value['depth'] <=> b.value['depth'] }
         visited_links = all_visited_links.keys
         next_link = links.find{ |link| !visited_links.contains?(link.key) }
         url = next_link.key
@@ -86,18 +90,19 @@ module ForkThis
 
       def save(page)
         puts "saving #{page.uri}"
-        content = HtmlMassage.html(page.body)
+        content = HtmlMassage.html page.body
         storage.put_text "#{page.uri.path.slug}.html", content, :collection => page.uri.host
         sleep 1+rand   # crawl considerately
       end
 
       def storage
-        unless @storage
-          @storage ||= PolyStore::Storage.new
-          @storage << PolyStore::FileStore.new #:dir => File.join(Dir.pwd, 'tmp')
-          @storage << PolyStore::GithubStore.new
-        end
-        @storage
+        ForkThis::Engine.config.storage
+        # unless @storage
+          # @storage ||= PolyStore::Storage.new
+          # @storage << PolyStore::FileStore.new #:dir => File.join(Dir.pwd, 'tmp')
+          # @storage << PolyStore::GithubStore.new
+        # end
+        # @storage
       end
 
     end

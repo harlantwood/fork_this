@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "html_massage", "~> 0.2.1"
   s.add_dependency "haml", "~> 3.1.7"
   s.add_dependency "formtastic", "~> 2.2.1"
-  s.add_dependency "superstring", "~> 0.0.1"
+  s.add_dependency "superstring", "~> 0.0.2"
   s.add_dependency "faraday", "~> 0.8.4"
   s.add_dependency "redcarpet", "~> 2.2.2"
   s.add_dependency "dotenv", "~> 0.5.0"

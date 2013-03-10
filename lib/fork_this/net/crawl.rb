@@ -1,3 +1,4 @@
+require 'fork_this/net/spider'
 # require 'mechanize'
 # require 'polystore/all'
 # require 'fileutils'
@@ -24,7 +25,7 @@ module ForkThis
         super attributes
       end
 
-      def next_page *args
+      def next_page(*args)
         Spider.new.next_page *args
       end
 

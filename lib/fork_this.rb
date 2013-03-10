@@ -1,4 +1,4 @@
-require "superstring"
+# require "superstring"
 require "faraday"
 require "core_ext/nil"
 require "fork_this/engine"

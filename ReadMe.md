@@ -11,8 +11,10 @@ Crawling saves a list of links (which may or may not yet have been crawled):
 ```json
 {
   'http://en.wikipedia.org/wiki/Physics': [
-    'http://en.wikipedia.org/wiki/Academic_discipline',
-    'http://www.scholarpedia.org/article/Encyclopedia_of_physics'
+    {
+      'http://en.wikipedia.org/wiki/Academic_discipline' => { depth: 1 },
+      'http://www.scholarpedia.org/article/Encyclopedia_of_physics' => { depth: 1 }
+    }
   ]
 ]
 ```
@@ -71,7 +73,8 @@ SITE_NAME=My Forking Site
 ^D
 ```
 
-And finally: 
+Running a Server
+----------------
 
 ```sh
 rails server
